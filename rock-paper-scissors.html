@@ -6,6 +6,95 @@
 </head>
 <body>
   <script>
+    function computerplay()
+        {
+            i=(Math.floor(Math.random()*3 + 1))
+            if (i==1){
+                return "rock";
+            }
+            else if (i==2)
+            {
+                return "paper";
+            }
+            else
+            {
+                return "scissors";
+            }
+        }
+    function playRound(playerselection,computerselection)
+        {
+            if (playerselection == computerselection)
+            {
+                console.log("it's a tie!")
+            }
+            else{
+                if (playerselection=="rock")
+                {
+                    if (computerselection=="paper")
+                    {
+                        console.log("you lose!")
+                        lose++
+                    }
+                    else{
+                        console.log("you win!")
+                        win++
+                    }
+                }
+                else if (playerselection=="paper")
+                {
+                    if (computerselection=="scissors")
+                    {
+                        console.log("you lose")
+                        lose++
+                    }
+                    else{
+                        console.log("you win!")
+                        win++
+                    }
+                }
+                else if (playerselection=="scissors")
+                {
+                    if (computerselection=="rock")
+                    {
+                        console.log("you lose")
+                        lose++
+                    }
+                    else{
+                        console.log("you win!")
+                        win++
+                    }
+                }
+            }
+        }
+    function playerplay()
+        {
+            var player = prompt("Choose Rock, Paper or Scissors","");
+            return player.toLowerCase();
+        }
+    function game()
+        {
+            while (win+lose<5)
+            {
+                computerselection=computerplay();
+                console.log(computerselection)
+                playerselection=playerplay();
+                console.log(playerselection)
+                playRound(playerselection,computerselection)
+            }
+            console.log("you won %s times, and lost %s times", win, lose)
+        }
+    win=0;
+    lose=0;
+    playerselection="";
+    computerselection="";
+    computerselection=computerplay();
+    console.log(computerselection)
+    function favoriteAnimal(animal) {
+        console.log(animal + " is my favorite animal!")
+    }
+
+    favoriteAnimal('Goat')
+    game()
   </script>
 </body>
 </html>
